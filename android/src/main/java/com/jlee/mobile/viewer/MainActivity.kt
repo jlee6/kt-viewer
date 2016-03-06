@@ -1,6 +1,5 @@
 package com.jlee.mobile.viewer
 
-import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,8 +7,12 @@ import android.widget.MediaController
 import android.widget.VideoView
 
 class MainActivity : AppCompatActivity() {
-    val RTSP_STREAM = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.movv"
+    /*
+     * Throws QCMediaPlayer not present - samsung
+     * val RTSP_STREAM = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov"
+     */
     val HLS_STREAM = "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8"
+
     lateinit var stream: VideoView
     lateinit var controller: MediaController
 
@@ -26,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         controller = MediaController(this)
         stream.setMediaController(controller)
 
-//        stream.setVideoURI(Uri.parse(RTSP_STREAM))
         stream.setVideoPath(HLS_STREAM)
+
         stream.setOnErrorListener { player, error, extra ->
             Log.wtf("StreamView", "Stream thrown error $error: $extra")
 
