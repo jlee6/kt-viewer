@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">viewer</string>
+
+    <string name="action_preferences">preferences</string>
+    <string name="action_viewer">viewer</string>
+    <string name="action_list">lists</string>
 </resources>
